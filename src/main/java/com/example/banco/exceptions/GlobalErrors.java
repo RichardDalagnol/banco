@@ -36,7 +36,8 @@ public class GlobalErrors {
             MissingRequestHeaderException.class, 
             HttpMessageNotReadableException.class,
             MethodArgumentTypeMismatchException.class, 
-            HandlerMethodValidationException.class})
+            HandlerMethodValidationException.class,
+            DataIntegrityViolationException.class})
     public ResponseEntity<ProblemDetail> invalid(Exception e) {
         return error(HttpStatus.BAD_REQUEST, "INVALID_REQUEST", "Verifique os campos, parâmetros e headers da requisição");
     }
