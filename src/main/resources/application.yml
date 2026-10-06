@@ -1,0 +1,24 @@
+spring:
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/banco}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:20}
+      connection-init-sql: SET lock_timeout = '10s'
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+server:
+  error:
+    include-message: never
+
+
+bank:
+  time-zone: ${BANK_TIME_ZONE:America/Sao_Paulo}
